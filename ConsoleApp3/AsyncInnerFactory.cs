@@ -18,7 +18,7 @@ namespace ConsoleApp3
             return $"{nameof(x)}: {x}, {nameof(y)}: {y}";
         }
 
-        private static async Task<(double, double)> GetSomeWorkDone(double rho, double theta)
+        private static async Task<(double, double)> GetSomeWorkDoneAsync(double rho, double theta)
         {
             await Task.Delay(1).ConfigureAwait(false);
 
@@ -32,7 +32,7 @@ namespace ConsoleApp3
         {
             public static async Task<APointWithInnerFactory> NewPolarPoint(double rho, double theta)
             {
-                var result = await GetSomeWorkDone(rho, theta);
+                var result = await GetSomeWorkDoneAsync(rho, theta);
 
                 return new APointWithInnerFactory(result.Item1, result.Item2);
             }
